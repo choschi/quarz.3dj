@@ -2,14 +2,16 @@
  * @author sosterwalder
  */
 
-function Vertex(x, y, z) {
-	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
+function Vertex(x, y, z, strHexColor) {
+	if (!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
 		throw "x, y and z have to be numbers!"
+	} else if (!_isHex(strHexColor)) {
+		throw "strHexCol has to be a hexadecimal value!";
 	} else {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.color = "#000000";	
+		this.color = strHexColor;	
 	}
 }
 
