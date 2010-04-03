@@ -1,9 +1,14 @@
 function Matrix(init){
 	if (init.length == 4){
+		if (debug){
+			console.innertHTML = console.innerHTML+"inits length is 4";
+		}
 		var goForGood = true;
 		for (var col in init){
-			if (init[col].lenght != 4){
-				
+			if(debug){
+				console.innerHTML = console.innerHTML +init[col].toString();
+			}
+			if (init[col].length != 4){
 				goForGood = false;
 			}
 		}
