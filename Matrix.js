@@ -21,3 +21,20 @@ function Matrix(init){
 		throw "Matrix has to have 4 columns";
 	}
 }
+
+function multiplyVertex(vtx){
+	vec = vtx.getVecor();
+	var out = new Array(0,0,0,0);
+	for (var i=0;i<4;i++){
+		for(var j=0;j<4;j++){
+			out[j] += this._matrix[i][j] * vec[j];
+		}
+	}
+	return vec;
+}
+
+function getMatrix(){
+	return this._matrix;
+}
+
+Matrix.prototype.getMatrix = getMatrix;
