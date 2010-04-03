@@ -51,6 +51,25 @@ function setZ(z) {
 }
 Vertex.prototype.setZ = setZ;
 
+function setVector(x, y, z) {
+	try {
+		this.x = x;
+		this.y = y;
+		this.z = z; 
+	}
+	catch (!_isInt(x)) {
+		throw "x has to be a number!";
+	}
+	catch (!_isInt(y)) {
+		throw "y has to be a number!";
+	}
+	catch (!_isInt(z)) {
+		throw "z has to be a number!";
+	}
+}
+Vertex.prototype.setVector = setVector;
+
+
 function getX() {
 	return this.x;
 }
@@ -70,6 +89,11 @@ function getH() {
 	return this.h;
 }
 Vertex.prototype.getH = getH;
+
+function getVector() {
+	return new Array(this.x, this.y, this.z, this.h);
+}
+Vertex.prototype.getVector = getVector;
 
 function _isInt(i) {
 	var j = parseInt(i);
