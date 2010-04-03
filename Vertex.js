@@ -9,7 +9,8 @@ function Vertex(x, y, z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.h = 1;	
+		this.h = 1;
+		this.color = "#000000";	
 	}
 }
 
@@ -39,6 +40,15 @@ function setZ(z) {
 	}
 }
 Vertex.prototype.setZ = setZ;
+
+function setHexColor(strHexCol) {
+	if (_isHex(strHexCol)) {
+		this.color = strHexCol;
+	} else {
+		throw "strHexCol has to be a hexadecimal value!";
+	}
+}
+Vertex.prototype.setHexColor = setHexColor;
 
 function setVector(x, y, z) {
 	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
@@ -72,6 +82,11 @@ function getH() {
 }
 Vertex.prototype.getH = getH;
 
+function getHexColor() {
+	return this.color;
+}
+Vertex.prototype.getHexColor = getHexColor;
+
 function getVector() {
 	return new Array(this.x, this.y, this.z, this.h);
 }
@@ -82,6 +97,16 @@ function _isNumber(i) {
 		return false;
 	} else {
 		return true;
+	}
+	
+	return false;
+}
+
+function _isHex(strHex) {
+	if (strHex.match("^([A-Fa-f0-9]{2}){8,9}$")) {
+		return true;
+	} else {
+		return false;
 	}
 	
 	return false;
