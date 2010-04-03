@@ -3,18 +3,18 @@
  */
 
 function Vertex(x, y, z) {
-	if(!_isInt(x) || !_isInt(y) || !_isInt(z)) {
+	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
 		throw "x, y and z have to be numbers!"
 	} else {
-	this.x = x;
-	this.y = y;
-	this.z = z;
-	this.h = 1;	
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.h = 1;	
 	}
 }
 
 function setX(x) {
-	if (!_isInt(x)) {
+	if (!_isNumber(x)) {
 		throw "x has to be a number!";
 	} else {
 		this.x = x;
@@ -23,7 +23,7 @@ function setX(x) {
 Vertex.prototype.setX = setX;
 
 function setY(y) {
-	if (!_isInt(y)) {
+	if (!_isNumber(y)) {
 		throw "y has to be a number!";
 	} else {
 		this.y = y;
@@ -32,7 +32,7 @@ function setY(y) {
 Vertex.prototype.setY = setY;
 
 function setZ(z) {
-	if (!_isInt(z)) {
+	if (!_isNumber(z)) {
 		throw "z has to be a number!";
 	} else {
 		this.z = z;
@@ -41,7 +41,7 @@ function setZ(z) {
 Vertex.prototype.setZ = setZ;
 
 function setVector(x, y, z) {
-	if(!_isInt(x) || !_isInt(y) || !_isInt(z)) {
+	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
 		throw "x, y and z have to be numbers!"
 	} else {
 		this.x = x;
@@ -77,8 +77,12 @@ function getVector() {
 }
 Vertex.prototype.getVector = getVector;
 
-function _isInt(i) {
-	var j = parseInt(i);
-	if (isNaN(j)) return false;
-	return i == j && i.toString() == j.toString();
+function _isNumber(i) {
+	if (isNaN(Number(i))) {
+		return false;
+	} else {
+		return true;
+	}
+	
+	return false;
 }
