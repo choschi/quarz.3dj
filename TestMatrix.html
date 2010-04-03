@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+<head>
+<script type="text/javascript" src="quarz.3dj/Matrix.js"></script>
+<script type="text/javascript" src="quarz.3dj/Vertex.js"></script>
+<script type="text/javascript" src="quarz.3dj/Vector.js"></script>
+<script type="text/javascript" src="quarz.3dj/Renderer.js"></script>
+<script type="text/javascript">
+var console;
+var debug = true;
+function test (){
+	//console = document.getElementById("console");
+	try{
+		var v1 = new Vertex (0.1,0.1,0.1,'#ff00ff');
+		var v2 = new Vertex(0,0,0,'#0000ff');
+		var v3 = new Vertex(0,0,0.1,'#ff00ff');
+		var v4 = new Vertex(0,0.1,0,'#00ff00');
+		var v5 = new Vertex(0.1,0,0,'#ffff00');
+		var v6 = new Vertex(0.1,0,0.1,'#00ffff');
+		var v7 = new Vertex(0,0.1,0.1,'#000000');
+		var v8 = new Vertex(0.1,0.1,0,'#ff7700');
+		var cameraPosition = new Vector(0,0,1);
+		var cameraAngles = new Vector(0,0,0);
+		var Renderer = new Renderer(cameraPosition, cameraAngles);
+	}catch(e){
+		window.alert(e);
+	}
+}
+</script>
+</head>
+<body onload="test()" style="text-align:center">
+<div id="container" style="margin: 0 auto">
+	<svg id="display" style="width:500px;height:500px;background:#dddddd">
+	</svg>
+</div>
+</body>
+</html>
