@@ -2,7 +2,7 @@
  * @author sosterwalder
  */
 
-function Vector(x, y, z) {
+function Vertex(x, y, z) {
 	try {
 		this.x = x;
 		this.y = y;
@@ -29,7 +29,7 @@ function setX(x) {
 	}
 		
 }
-Vector.prototype.setX = setX;
+Vertex.prototype.setX = setX;
 
 function setY(y) {
 	try {
@@ -39,7 +39,7 @@ function setY(y) {
 		throw "y has to be a number!";
 	}
 }
-Vector.prototype.setY = setY;
+Vertex.prototype.setY = setY;
 
 function setZ(z) {
 	try {
@@ -49,27 +49,51 @@ function setZ(z) {
 		throw "z has to be a number!";
 	}
 }
-Vector.prototype.setZ = setZ;
+Vertex.prototype.setZ = setZ;
+
+function setVector(x, y, z) {
+	try {
+		this.x = x;
+		this.y = y;
+		this.z = z; 
+	}
+	catch (!_isInt(x)) {
+		throw "x has to be a number!";
+	}
+	catch (!_isInt(y)) {
+		throw "y has to be a number!";
+	}
+	catch (!_isInt(z)) {
+		throw "z has to be a number!";
+	}
+}
+Vertex.prototype.setVector = setVector;
+
 
 function getX() {
 	return this.x;
 }
-Vector.prototype.getX = getX;
+Vertex.prototype.getX = getX;
 
 function getY() {
 	return this.y;
 }
-Vector.prototype.getY = getY;
+Vertex.prototype.getY = getY;
 
 function getZ() {
 	return this.z;
 }
-Vector.prototype.getZ = getZ;
+Vertex.prototype.getZ = getZ;
 
 function getH() {
 	return this.h;
 }
-Vector.prototype.getH = getH;
+Vertex.prototype.getH = getH;
+
+function getVector() {
+	return new Array(this.x, this.y, this.z, this.h);
+}
+Vertex.prototype.getVector = getVector;
 
 function _isInt(i) {
 	var j = parseInt(i);
