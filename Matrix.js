@@ -24,6 +24,11 @@ function Matrix(init){
 
 function multiplyVertex(vtx){
 	var vec = vtx.getVector();
+	return vecMult(vec);
+}
+
+function vecMult(v){
+	vec = new Array(v.getX(),v.getY(),v.getZ(),v.getH());
 	var out = new Array(0,0,0,0);
 	for (var i=0;i<4;i++){
 		for(var j=0;j<4;j++){
@@ -33,6 +38,14 @@ function multiplyVertex(vtx){
 	return out;
 }
 
+function mtrxMult(mtrx){
+	var newMtrx = new Array(new Array(0,0,0,0),new Array(0,0,0,0), new Array(0,0,0,0), new Array(0,0,0,0));
+	for (var i=0;i<4;i++){
+		for(var j=0;j<4;j++){
+			//out[j] += this._matrix[i][j] * vec[j];
+		}
+	}
+}
 Matrix.prototype.multiplyVertex = multiplyVertex;
 
 function getMatrix(){
