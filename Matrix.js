@@ -23,15 +23,17 @@ function Matrix(init){
 }
 
 function multiplyVertex(vtx){
-	vec = vtx.getVecor();
+	var vec = vtx.getVector();
 	var out = new Array(0,0,0,0);
 	for (var i=0;i<4;i++){
 		for(var j=0;j<4;j++){
 			out[j] += this._matrix[i][j] * vec[j];
 		}
 	}
-	return vec;
+	return out;
 }
+
+Matrix.prototype.multiplyVertex = multiplyVertex;
 
 function getMatrix(){
 	return this._matrix;
