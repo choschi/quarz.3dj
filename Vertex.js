@@ -3,68 +3,50 @@
  */
 
 function Vertex(x, y, z) {
-	try {
-		this.x = x;
-		this.y = y;
-		this.z = z; 
-		this.h = 1;
-	}
-	catch (!_isInt(x)) {
-		throw "x has to be a number!";
-	}
-	catch (!_isInt(y)) {
-		throw "y has to be a number!";
-	}
-	catch (!_isInt(z)) {
-		throw "z has to be a number!";
+	if(!_isInt(x) || !_isInt(y) || !_isInt(z)) {
+		throw "x, y and z have to be numbers!"
+	} else {
+	this.x = x;
+	this.y = y;
+	this.z = z;
+	this.h = 1;	
 	}
 }
 
 function setX(x) {
-	try {
+	if (!_isInt(x)) {
+		throw "x has to be a number!";
+	} else {
 		this.x = x;
 	}
-	catch (!_isInt(x)) {
-		throw "x has to be a number!";
-	}
-		
 }
 Vertex.prototype.setX = setX;
 
 function setY(y) {
-	try {
-		this.y = y;
-	}
-	catch (!_isInt(y)) {
+	if (!_isInt(y)) {
 		throw "y has to be a number!";
+	} else {
+		this.y = y;
 	}
 }
 Vertex.prototype.setY = setY;
 
 function setZ(z) {
-	try {
-		this.z = z;
-	}
-	catch (!_isInt(z)) {
+	if (!_isInt(z)) {
 		throw "z has to be a number!";
+	} else {
+		this.z = z;
 	}
 }
 Vertex.prototype.setZ = setZ;
 
 function setVector(x, y, z) {
-	try {
+	if(!_isInt(x) || !_isInt(y) || !_isInt(z)) {
+		throw "x, y and z have to be numbers!"
+	} else {
 		this.x = x;
 		this.y = y;
-		this.z = z; 
-	}
-	catch (!_isInt(x)) {
-		throw "x has to be a number!";
-	}
-	catch (!_isInt(y)) {
-		throw "y has to be a number!";
-	}
-	catch (!_isInt(z)) {
-		throw "z has to be a number!";
+		this.z = z;
 	}
 }
 Vertex.prototype.setVector = setVector;
