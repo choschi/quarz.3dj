@@ -9,7 +9,6 @@ function Vertex(x, y, z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.h = 1;
 		this.color = "#000000";	
 	}
 }
@@ -50,14 +49,10 @@ function setHexColor(strHexCol) {
 }
 Vertex.prototype.setHexColor = setHexColor;
 
-function setVector(x, y, z) {
-	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
-		throw "x, y and z have to be numbers!"
-	} else {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
+function setVector(vector) {
+	this.x = vector.x;
+	this.y = vector.y;
+	this.z = vector.z;
 }
 Vertex.prototype.setVector = setVector;
 
@@ -77,18 +72,13 @@ function getZ() {
 }
 Vertex.prototype.getZ = getZ;
 
-function getH() {
-	return this.h;
-}
-Vertex.prototype.getH = getH;
-
 function getHexColor() {
 	return this.color;
 }
 Vertex.prototype.getHexColor = getHexColor;
 
 function getVector() {
-	return new Array(this.x, this.y, this.z, this.h);
+	return new Vector(this.x, this.y, this.z);
 }
 Vertex.prototype.getVector = getVector;
 
@@ -103,7 +93,8 @@ function _isNumber(i) {
 }
 
 function _isHex(strHex) {
-	if (strHex.match("^([A-Fa-f0-9]{2}){8,9}$")) {
+	if (strHex.match("(#)([A-Fa-f0-9]{2}){3}")) {
+		//([A-Fa-f0-9]{2}){8,9}
 		return true;
 	} else {
 		return false;
