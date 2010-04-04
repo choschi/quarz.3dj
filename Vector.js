@@ -1,11 +1,15 @@
-function Vector (x,y,z){
+function Vector (x,y,z,h){
 	if(!_isNumber(x) || !_isNumber(y) || !_isNumber(z)) {
 		throw "x, y and z have to be numbers!"
 	} else {
 		this._x = x;
 		this._y = y;
 		this._z = z;
-		this._h = 1;	
+		if (h != null){
+			this._h = h;	
+		}else{
+			this._h = 1;
+		}
 	}
 }
 
@@ -29,21 +33,23 @@ Vector.prototype.add = add;
 function getX() {
 	return this._x+0;
 }
-Vertex.prototype.getX = getX;
+Vector.prototype.getX = getX;
 
 function getY() {
 	return this._y+0;
 }
-Vertex.prototype.getY = getY;
+Vector.prototype.getY = getY;
 
 function getZ() {
 	return this._z+0;
 }
-Vertex.prototype.getZ = getZ;
+Vector.prototype.getZ = getZ;
 
 function getH() {
 	return this._h+0;
 }
+
+Vector.prototype.getH = getH;
 
 function _isNumber(i) {
 	if (isNaN(Number(i))) {

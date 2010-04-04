@@ -11,7 +11,9 @@ function Vertex(x, y, z, strHexColor) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.color = strHexColor;	
+		this.color = strHexColor;
+		this.pX = 0;
+		this.pY = 0;
 	}
 }
 
@@ -58,6 +60,20 @@ function setVector(vector) {
 }
 Vertex.prototype.setVector = setVector;
 
+function getPx(){
+	return this.pX;
+}
+function getPy(){
+	return this.pY;
+}
+function setCoord(x,y){
+	this.pX = x;
+	this.pY = y;
+}
+
+Vertex.prototype.getPx = getPx;
+Vertex.prototype.getPy = getPy;
+Vertex.prototype.setCoord = setCoord;
 
 function getX() {
 	return this.x;
@@ -93,6 +109,17 @@ function _isNumber(i) {
 	
 	return false;
 }
+
+function getId(keeper){
+	if (this._id != null){
+		
+	}else{
+		this._id = keeper.getVertexId();
+	}
+	return this._id;
+}
+
+Vertex.prototype.getId = getId;
 
 function _isHex(strHex) {
 	if (strHex.match("(#)([A-Fa-f0-9]{2}){3}")) {
