@@ -1,10 +1,12 @@
 <!Doctype html>
 <html>
 <head>
-<script type="text/javascript" src="Matrix.js"></script>
-<script type="text/javascript" src="Vertex.js"></script>
-<script type="text/javascript" src="Vector.js"></script>
-<script type="text/javascript" src="Renderer.js"></script>
+<script type="text/javascript" src="quarz.3dj/Matrix.js"></script>
+<script type="text/javascript" src="quarz.3dj/Vertex.js"></script>
+<script type="text/javascript" src="quarz.3dj/Vector.js"></script>
+<script type="text/javascript" src="quarz.3dj/Renderer.js"></script>
+<script type="text/javascript" src="quarz.3dj/GateKeeper.js"></script>
+<script type="text/javascript" src="quarz.3dj/SvgMaster.js"></script>
 <script type="text/javascript">
 var console;
 var debug = true;
@@ -13,15 +15,26 @@ function test (){
 	try{
 		var v1 = new Vertex (0.1,0.1,0.1,'#ff00ff');
 		var v2 = new Vertex(0,0,0,'#0000ff');
-		var v3 = new Vertex(0,0,0.1,'#ff00ff');
+		var v3 = new Vertex(0,0,0.1,'#ff0000');
 		var v4 = new Vertex(0,0.1,0,'#00ff00');
 		var v5 = new Vertex(0.1,0,0,'#ffff00');
 		var v6 = new Vertex(0.1,0,0.1,'#00ffff');
 		var v7 = new Vertex(0,0.1,0.1,'#000000');
-		var v8 = new Vertex(0.1,0.1,0,'#ff7700');
+		var v8 = new Vertex(0.1,0.1,0,'#ffffff');
+		var vertices = new Array(v1,v2,v3,v4,v5,v6,v7,v8);
 		var cameraPosition = new Vector(0,0,1);
 		var cameraAngles = new Vector(0,0,0);
-		var Renderer = new Renderer(cameraPosition, cameraAngles);
+		var renderer = new Renderer(cameraPosition, cameraAngles);
+		master = new SvgMaster('display');
+		for (var i=0;i<vertices.length;i++){
+			try{
+				var vtx = vertices[i];
+				renderer.vertex2Plain(vtx);
+				master.updateVertex(vtx);
+			}catch (e){
+				window.alert("in inner loop "+e);
+			}
+		}
 	}catch(e){
 		window.alert(e);
 	}
